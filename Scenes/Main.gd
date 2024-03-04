@@ -32,9 +32,15 @@ func _process(_delta):
 		if soundtrackDelay < 0.0:
 			$Soundtrack.play()
 
+func trigger_event(_eventName : String):
+	if _eventName.begins_with("Feed"):
+		$PlayerTracker/Camera/Background.new_sky()
+	$Narrative.trigger_event(_eventName)
+
 func caught_fish(_fish):
 	inventory.update_amount(_fish, 1)
 	fishing.finished_waiting(false)
+	trigger_event("Catch%s" % _fish)
 
 func radio_pressed():
 	narrative.radio_pressed()
@@ -69,6 +75,7 @@ func cancel_fish_selection():
 
 func whale_fed(_fish : String):
 	$Ship/Rig/Crane.start_feeding()
+	trigger_event("FeedAny")
 
 
 func _on_Soundtrack_finished():

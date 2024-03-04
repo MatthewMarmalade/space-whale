@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/HarpoonHit_Chime-001.wav-eba3f79ba975e8a4cf05754748784425.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/HarpoonHit_Chime-001.wav"
+dest_files=[ "res://.import/HarpoonHit_Chime-001.wav-eba3f79ba975e8a4cf05754748784425.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

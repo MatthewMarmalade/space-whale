@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/RadioStatic_TwoSeconds.wav-79ad9ce54be6b0c18ee0c1db24f41b34.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/RadioStatic_TwoSeconds.wav"
+dest_files=[ "res://.import/RadioStatic_TwoSeconds.wav-79ad9ce54be6b0c18ee0c1db24f41b34.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

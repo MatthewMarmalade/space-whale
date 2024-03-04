@@ -73,6 +73,7 @@ func ready_to_feed():
 	var main = get_node("/root/Main")
 	main.whale_fed(carryingFishID)
 	set_fish("")
+	
 
 func take_fish():
 	var main = get_node("/root/Main")
@@ -86,7 +87,6 @@ func finish_move():
 	match nextPosition:
 		Position.UP:
 			currentState = State.STILL_UP
-			ready_to_select()
 		Position.DOWN:
 			currentState = State.STILL_DOWN
 			ready_to_feed()
@@ -98,27 +98,13 @@ func finish_move():
 		nextPosition = queuedPosition
 		queuedPosition = null
 		move()
-
-func _on_AnimationPlayer_animation_finished(_anim_name):
-	if currentState == State.MOVING:
-		finish_move()
-
-
-func _on_CraneUP_pressed():
-	crane_up()
-
-
-func _on_CraneNORM_pressed():
-	crane_return()
-
-
-func _on_CraneDOWN_pressed():
-	crane_down()
-
-func _on_Feed_pressed():
-	if currentState == State.STILL_UP:
+	elif currentState == State.STILL_UP:
 		var fish = take_fish()
 		if fish != null:
 			set_fish(fish)
 			crane_down()
+
+func _on_AnimationPlayer_animation_finished(_anim_name):
+	if currentState == State.MOVING:
+		finish_move()
 	

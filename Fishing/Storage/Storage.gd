@@ -2,6 +2,7 @@ extends Node2D
 
 export var stackItem : PackedScene
 export var stackType : String
+export var stackName : String
 export var stackLimit : int = 10
 
 var amount : int = 0
@@ -15,7 +16,7 @@ var stackedItems = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Type.text = "%s" % stackType
+	$Type.text = "%s" % stackName
 	clear_stack()
 	render_amount(0)
 

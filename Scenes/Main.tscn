@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://Fishing/Fishing.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fishing/Storage/Inventory.tscn" type="PackedScene" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=5]
 [ext_resource path="res://Conversation/Conversation.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Conversation/Radio.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Assets/Fish/Coe_B.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Background/Backgrounds/Basic1.png" type="Texture" id=8]
 [ext_resource path="res://Fishing/Storage/Stacks/BlueFishStack.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Player/Hush_B.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Ship/Whale/Whale_Eye.png" type="Texture" id=11]
@@ -36,6 +36,24 @@
 [ext_resource path="res://Fishing/Storage/Stacks/RedFishStack.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Assets/Ship/Crane/Crane_Arm_B.png" type="Texture" id=35]
 [ext_resource path="res://Audio/StarryWhale_NowWithWhales.wav" type="AudioStream" id=36]
+[ext_resource path="res://Scenes/Background.gd" type="Script" id=37]
+[ext_resource path="res://Assets/Background/Backgrounds/Dots2.png" type="Texture" id=38]
+[ext_resource path="res://Assets/Background/Backgrounds/Loom2.png" type="Texture" id=39]
+[ext_resource path="res://Assets/Background/Backgrounds/Dots4.png" type="Texture" id=40]
+[ext_resource path="res://Assets/Background/Backgrounds/Dots1.png" type="Texture" id=41]
+[ext_resource path="res://Assets/Background/Backgrounds/Rings1.png" type="Texture" id=42]
+[ext_resource path="res://Assets/Background/Backgrounds/Blank.png" type="Texture" id=43]
+[ext_resource path="res://Assets/Background/Backgrounds/Rings3.png" type="Texture" id=44]
+[ext_resource path="res://Assets/Background/Backgrounds/Dots3.png" type="Texture" id=45]
+[ext_resource path="res://Assets/Background/Backgrounds/Rings4.png" type="Texture" id=46]
+[ext_resource path="res://Assets/Background/Backgrounds/Horizon2.png" type="Texture" id=47]
+[ext_resource path="res://Assets/Background/Backgrounds/Rings2.png" type="Texture" id=48]
+[ext_resource path="res://Assets/Background/Backgrounds/Rings5.png" type="Texture" id=49]
+[ext_resource path="res://Assets/Background/Backgrounds/Loom3.png" type="Texture" id=50]
+[ext_resource path="res://Assets/Background/Backgrounds/Horizon1.png" type="Texture" id=51]
+[ext_resource path="res://Assets/Background/Backgrounds/Basic2.png" type="Texture" id=52]
+[ext_resource path="res://Assets/Background/Backgrounds/Basic4.png" type="Texture" id=53]
+[ext_resource path="res://Assets/Background/Backgrounds/Basic3.png" type="Texture" id=54]
 
 [sub_resource type="Animation" id=9]
 resource_name = "Crane_Down"
@@ -336,12 +354,13 @@ volume_db = -10.0
 position = Vector2( -137, -44 )
 
 [node name="Inventory" parent="." instance=ExtResource( 2 )]
-position = Vector2( -170, 164 )
+position = Vector2( -182, 164 )
+z_index = 2
 
 [node name="Narrative" type="Node2D" parent="."]
 script = ExtResource( 25 )
 barks = PoolStringArray( "QuickChat1", "QuickChat2", "QuickChat3" )
-plotline = PoolStringArray( "FirstContact", "MuchBetter" )
+plotline = PoolStringArray( "FirstContact", "Convo3", "Convo4", "Convo5", "Convo6", "Convo7", "Convo8", "Convo9", "Convo10" )
 
 [node name="Conversation" parent="Narrative" instance=ExtResource( 6 )]
 
@@ -415,6 +434,7 @@ texture = ExtResource( 17 )
 
 [node name="Crane" type="Node2D" parent="Ship/Rig"]
 position = Vector2( -610, -205 )
+z_index = 5
 script = ExtResource( 29 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ship/Rig/Crane"]
@@ -424,20 +444,6 @@ anims/Crane_Down_Return = SubResource( 10 )
 anims/Crane_Up = SubResource( 11 )
 anims/Crane_Up_Return = SubResource( 12 )
 anims/RESET = SubResource( 8 )
-
-[node name="TestButtons" type="Node2D" parent="Ship/Rig/Crane"]
-position = Vector2( 932.5, 472.5 )
-scale = Vector2( 2.5, 2.5 )
-
-[node name="Feed" type="Button" parent="Ship/Rig/Crane/TestButtons"]
-margin_left = -346.0
-margin_top = -65.0
-margin_right = -250.0
-margin_bottom = -45.0
-text = "Feed"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="FirstPivot" type="Node2D" parent="Ship/Rig/Crane"]
 position = Vector2( -2.5, 0 )
@@ -552,12 +558,96 @@ zoom = Vector2( 1.2, 1.2 )
 [node name="Background" type="Node2D" parent="PlayerTracker/Camera"]
 rotation = 3.82995e-06
 z_index = -25
+script = ExtResource( 37 )
 
-[node name="TemporaryBG" type="Sprite" parent="PlayerTracker/Camera/Background"]
-modulate = Color( 0, 0, 0, 1 )
-scale = Vector2( 100, 100 )
+[node name="BG1" type="Sprite" parent="PlayerTracker/Camera/Background"]
+scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 8 )
+
+[node name="BG2" type="Sprite" parent="PlayerTracker/Camera/Background"]
+visible = false
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 41 )
+
+[node name="BG3" type="Sprite" parent="PlayerTracker/Camera/Background"]
+visible = false
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 38 )
+
+[node name="BG4" type="Sprite" parent="PlayerTracker/Camera/Background"]
+visible = false
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 45 )
+
+[node name="BG5" type="Sprite" parent="PlayerTracker/Camera/Background"]
+visible = false
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 40 )
+
+[node name="BG6" type="Sprite" parent="PlayerTracker/Camera/Background"]
+visible = false
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 51 )
+
+[node name="BG7" type="Sprite" parent="PlayerTracker/Camera/Background"]
+visible = false
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 47 )
+
+[node name="BG8" type="Sprite" parent="PlayerTracker/Camera/Background"]
+visible = false
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 39 )
+
+[node name="BG9" type="Sprite" parent="PlayerTracker/Camera/Background"]
+visible = false
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 50 )
+
+[node name="BG10" type="Sprite" parent="PlayerTracker/Camera/Background"]
+visible = false
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 42 )
+
+[node name="BG11" type="Sprite" parent="PlayerTracker/Camera/Background"]
+visible = false
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 48 )
+
+[node name="BG12" type="Sprite" parent="PlayerTracker/Camera/Background"]
+visible = false
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 44 )
+
+[node name="BG13" type="Sprite" parent="PlayerTracker/Camera/Background"]
+visible = false
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 46 )
+
+[node name="BG14" type="Sprite" parent="PlayerTracker/Camera/Background"]
+visible = false
+rotation = 0.0349066
+scale = Vector2( -0.35, 0.35 )
+texture = ExtResource( 49 )
+
+[node name="BG15" type="Sprite" parent="PlayerTracker/Camera/Background"]
+visible = false
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 52 )
+
+[node name="BG16" type="Sprite" parent="PlayerTracker/Camera/Background"]
+visible = false
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 54 )
+
+[node name="BG17" type="Sprite" parent="PlayerTracker/Camera/Background"]
+visible = false
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 53 )
+
+[node name="First" type="Sprite" parent="PlayerTracker/Camera/Background"]
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 43 )
 
 [connection signal="finished" from="Soundtrack" to="." method="_on_Soundtrack_finished"]
 [connection signal="animation_finished" from="Ship/Rig/Crane/AnimationPlayer" to="Ship/Rig/Crane" method="_on_AnimationPlayer_animation_finished"]
-[connection signal="pressed" from="Ship/Rig/Crane/TestButtons/Feed" to="Ship/Rig/Crane" method="_on_Feed_pressed"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/RadioStatic_OneSecond.wav-1342927ea6840e4ac20f3fb066819b54.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/RadioStatic_OneSecond.wav"
+dest_files=[ "res://.import/RadioStatic_OneSecond.wav-1342927ea6840e4ac20f3fb066819b54.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

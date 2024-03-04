@@ -26,6 +26,9 @@ func start_reel():
 	distance = farDistance
 	$Reel.start_reel()
 
+func stop_reel():
+	$Reel.stop_reel()
+
 func hit_reel():
 	var successProp = $Reel.hit_reel()
 	distance -= distancePerHit * successProp

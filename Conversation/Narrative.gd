@@ -3,11 +3,22 @@ extends Node2D
 export var barks : PoolStringArray = []
 export var plotline : PoolStringArray = []
 
+var seenEvents : Array = []
+
 var firstConversation = true
 var nextConversation = null
 var waitDuration = 0.0
 
 var fixedWaitDuration = 30.0
+
+
+func trigger_event(_eventName : String):
+	if _eventName == "FeedAny" and seenEvents.has("FeedAny"):
+		if randf() < 0.3:
+			$Conversation.queue_conversation("FeedAnyLater%d" % (randi() % 3))
+	elif !seenEvents.has(_eventName):
+		$Conversation.queue_conversation(_eventName)
+		seenEvents.append(_eventName)
 
 func conversation_queued():
 	return $Conversation.conversation_queued()

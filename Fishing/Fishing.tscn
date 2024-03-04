@@ -17,36 +17,6 @@ script = ExtResource( 1 )
 visible = false
 position = Vector2( 1024, 0 )
 
-[node name="Fish" type="Button" parent="."]
-margin_left = 861.0
-margin_top = 162.0
-margin_right = 906.0
-margin_bottom = 182.0
-text = "FISH!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Reel" type="Button" parent="."]
-margin_left = 842.0
-margin_top = 216.0
-margin_right = 882.0
-margin_bottom = 236.0
-text = "Reel"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Distance" type="Label" parent="Reel"]
-margin_left = 48.0
-margin_top = 3.0
-margin_right = 88.0
-margin_bottom = 17.0
-text = "0.0m"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Display" parent="." instance=ExtResource( 4 )]
 position = Vector2( 740, 498 )
 
@@ -60,5 +30,38 @@ fish = {
 "Red": ExtResource( 9 )
 }
 
-[connection signal="pressed" from="Fish" to="." method="_on_Fish_pressed"]
-[connection signal="pressed" from="Reel" to="." method="_on_Reel_pressed"]
+[node name="Buttons" type="Node2D" parent="."]
+z_index = 10
+
+[node name="Fish" type="Button" parent="Buttons"]
+margin_left = 454.0
+margin_top = 352.0
+margin_right = 499.0
+margin_bottom = 372.0
+text = "FISH"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reel" type="Button" parent="Buttons"]
+margin_left = 312.0
+margin_top = 466.0
+margin_right = 352.0
+margin_bottom = 486.0
+text = "Reel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Distance" type="Label" parent="Buttons/Reel"]
+margin_left = 48.0
+margin_top = 3.0
+margin_right = 88.0
+margin_bottom = 17.0
+text = "0.0m"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Buttons/Fish" to="." method="_on_Fish_pressed"]
+[connection signal="pressed" from="Buttons/Reel" to="." method="_on_Reel_pressed"]

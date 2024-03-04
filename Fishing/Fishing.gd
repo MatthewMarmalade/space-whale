@@ -39,6 +39,7 @@ func state_change(_nextState):
 	
 	if _nextState != State.REELING:
 		$Crane.set_fish("")
+		$Crane.stop_reel()
 	if _nextState != State.REELING and _nextState != State.HOOKING:
 		$Display.render_closest("")
 	
@@ -78,7 +79,7 @@ func _process(delta):
 				distance = 0.0
 				set_deferred_state(State.WAITINGSTART)
 			
-			$Reel/Distance.text = "%.0fm" % distance
+			$Buttons/Reel/Distance.text = "%.0fm" % distance
 		State.WAITINGSTART:
 			var main = get_node("/root/Main")
 			set_deferred_state(State.WAITING)
