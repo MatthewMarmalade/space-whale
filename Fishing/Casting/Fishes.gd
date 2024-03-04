@@ -5,7 +5,7 @@ var perturbationProp = 0.25
 # var a = 2
 # var b = "text"
 var spread = []
-var rarities = {R = 2.5, G = 2.0, B = 2.25, P = 4.0, Y = 4.5, J = 3.0}
+var rarities = {Red = 2.5, Green = 2.0, Blue = 2.25, Purple = 4.0, Gold = 4.5}
 
 # spreads out its children
 # returns their positions and types
@@ -30,7 +30,7 @@ func spread_fish(_min : float, _max : float):
 	for child in children:
 		var childY = (i * spacing + random_perturbation(perturbation))
 		child.position.y = _min + childY
-		spread.append({y = childY, color = child.name[0], rarity = rarities[child.name[0]]})
+		spread.append({y = childY, color = child.color, rarity = rarities[child.color]})
 		i += 1.0
 	
 	#spread.append({y = 0.0, color = "J", rarity = rarities["J"]})

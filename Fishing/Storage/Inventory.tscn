@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Fishing/Storage/Storage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Fishing/Storage/Inventory.gd" type="Script" id=2]
+[ext_resource path="res://Fishing/Storage/Stacks/GreenFishStack.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fishing/Storage/Stacks/BlueFishStack.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Fishing/Storage/Stacks/PurpleFishStack.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Fishing/Storage/Stacks/GoldFishStack.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Fishing/Storage/Storage.gd" type="Script" id=7]
+[ext_resource path="res://Fishing/Storage/Stacks/RedFishStack.tscn" type="PackedScene" id=8]
+
+[node name="Inventory" type="Node2D"]
+position = Vector2( 222, 269 )
+script = ExtResource( 2 )
+
+[node name="Storages" type="Node2D" parent="."]
+
+[node name="Red" type="Node2D" parent="Storages" instance=ExtResource( 1 )]
+position = Vector2( -150, 0 )
+script = ExtResource( 7 )
+stackItem = ExtResource( 8 )
+stackType = "Red"
+
+[node name="Green" type="Node2D" parent="Storages" instance=ExtResource( 1 )]
+position = Vector2( -75, 0 )
+script = ExtResource( 7 )
+stackItem = ExtResource( 3 )
+stackType = "Green"
+
+[node name="Blue" type="Node2D" parent="Storages" instance=ExtResource( 1 )]
+script = ExtResource( 7 )
+stackItem = ExtResource( 4 )
+stackType = "Blue"
+
+[node name="Purple" type="Node2D" parent="Storages" instance=ExtResource( 1 )]
+position = Vector2( 75, 0 )
+script = ExtResource( 7 )
+stackItem = ExtResource( 5 )
+stackType = "Purple"
+
+[node name="Gold" type="Node2D" parent="Storages" instance=ExtResource( 1 )]
+position = Vector2( 150, 0 )
+script = ExtResource( 7 )
+stackItem = ExtResource( 6 )
+stackType = "Gold"

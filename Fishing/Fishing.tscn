@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Fishing/Fishing.gd" type="Script" id=1]
+[ext_resource path="res://Fishing/Storage/Stacks/GreenFishStack.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fishing/Storage/Stacks/BlueFishStack.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fishing/Casting/Display.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Fishing/Reeling/Crane.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Fishing/Casting/Cast.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Fishing/Storage/Stacks/PurpleFishStack.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Fishing/Storage/Stacks/GoldFishStack.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Fishing/Storage/Stacks/RedFishStack.tscn" type="PackedScene" id=9]
+
+[node name="Fishing" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Cast" parent="." instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 1024, 0 )
+
+[node name="Fish" type="Button" parent="."]
+margin_left = 861.0
+margin_top = 162.0
+margin_right = 906.0
+margin_bottom = 182.0
+text = "FISH!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reel" type="Button" parent="."]
+margin_left = 842.0
+margin_top = 216.0
+margin_right = 882.0
+margin_bottom = 236.0
+text = "Reel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Distance" type="Label" parent="Reel"]
+margin_left = 48.0
+margin_top = 3.0
+margin_right = 88.0
+margin_bottom = 17.0
+text = "0.0m"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Display" parent="." instance=ExtResource( 4 )]
+position = Vector2( 740, 498 )
+
+[node name="Crane" parent="." instance=ExtResource( 5 )]
+scale = Vector2( 0.8, 0.8 )
+fish = {
+"Blue": ExtResource( 3 ),
+"Gold": ExtResource( 8 ),
+"Green": ExtResource( 2 ),
+"Purple": ExtResource( 7 ),
+"Red": ExtResource( 9 )
+}
+
+[connection signal="pressed" from="Fish" to="." method="_on_Fish_pressed"]
+[connection signal="pressed" from="Reel" to="." method="_on_Reel_pressed"]
