@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/StarryWhale_NowWithWhales.wav-92a25a4345cc0ae7aa46b5a52f6ab857.sample"
+
+[deps]
+
+source_file="res://Audio/StarryWhale_NowWithWhales.wav"
+dest_files=[ "res://.import/StarryWhale_NowWithWhales.wav-92a25a4345cc0ae7aa46b5a52f6ab857.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
